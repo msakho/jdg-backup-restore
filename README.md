@@ -5,9 +5,9 @@ The approach that is defined for the backup is to iterate through the cache for 
 The restore appoach is to load a dump file on any node.
 The marshalling and unmarshalling process of the cached datas relies on the [Jackson databinding framework](https://github.com/FasterXML/jackson-docs) 
 The backup and restore exists in two flavor:
-1) A scheduled Startup class the process the backup given a scheduled configuration.
+1) A scheduled Startup class to process the backup given a scheduled configuration.
 2) A JMX MBean that offers two operations to process the backup.
-3) A scheduled Startup class the process the restore given a scheduled configuration.
+3) A scheduled Startup class to process the restore given a scheduled configuration.
 4) A JMX Mbean that offers two operations to process the restore.
 
 A CacheItem Object is designed to encapsulate the Cache Key and the Cache Value.
