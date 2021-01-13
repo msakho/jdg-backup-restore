@@ -27,15 +27,58 @@ All these objects are defined in respect of jackson data binding framework. That
 
 The extract of the differents object definition are described below:
 
+The CacheItem object that represent the generic key, value pair.
+
 ```
 public class CacheItem<K,V> implements Serializable {
 	private K key;
 	private V entry;
 
 ```
+The CacheWrapper Object that handle a list of CacheItem.
 ```
 public class CacheWrapper<CacheItem> implements Serializable {	
 	private List<CacheItem> data;
+```
+The MessageKey object which is an Example of key object.
+```
+public class MessageKey implements Serializable {
+
+	private String id;
+	private String bicCode;
+```
+The PacsBean object which represents an Example of value.
+```
+public class PacsBean implements Serializable {
+	
+	private String msgId;
+	private String transactionId;
+	private String instructionId;
+	boolean timeoutManagement;
+	private BigDecimal amount;
+```
+An example of usage of the above objects might look likes the following snipped:
+```
+ArrayList<CacheItem<MessageKey, PacsBean>> data = new ArrayList<CacheItem<MessageKey, PacsBean>>();
+
+			CacheSet<Entry<MessageKey, PacsBean>> entries = cache.getAdvancedCache().withFlags(Flag.SKIP_REMOTE_LOOKUP)
+					.entrySet();
+
+			for (Entry<MessageKey, PacsBean> entry : entries) {
+				CacheItem<MessageKey, PacsBean> item = new CacheItem<MessageKey, PacsBean>();
+				MessageKey key = entry.getKey();
+				PacsBean value = entry.getValue();
+				item.setEntry(value);
+				item.setKey(key);
+				data.add(item);
+
+			}
+			CacheWrapper<CacheItem<MessageKey, PacsBean>> cacheWrapper = new CacheWrapper<CacheItem<MessageKey, PacsBean>>();
+			cacheWrapper.setData(data);
+```
+The jackson invocation to generate the dump from the cache look like the following instrcution:
+```
+mapper.writeValue(new File(jsonOutput), cacheWrapper.getData());
 ```
 
 ## Deployment
