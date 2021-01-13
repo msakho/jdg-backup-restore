@@ -10,7 +10,7 @@ The backup and restore exists in multiple flavors:
 3) A scheduled Startup class to process the restore given a scheduled configuration.
 4) A JMX Mbean that offers two operations to process the restore on demand.
 
-# Architecture
+# Design
 
 In order to process the backup by dumping the cache data in a file, the infinispan cached datas will have to be read and encapsulated to java suitable java objects before being marshalled to json files. 
 The same logic applies for the restore back to a cache from a json file. The json input will have to be marshalled back to java objects that will correspond to keys and value pairs, representing a cache entry.
