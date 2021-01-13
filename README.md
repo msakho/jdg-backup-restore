@@ -16,6 +16,7 @@ A messageKey and a PacsBean object are used respectively for keys and values.
 Finally a CacheWrapper is designed to encasulate the cache data.
 All these object are defined in respect of jackson databinding framework. 
 That gives us to possibility to marshall the cache into json and to load them back in a cache as desired.
+The extract of the differents object definition are described below:
 
 ```
 public class CacheItem<K,V> implements Serializable {
@@ -23,7 +24,10 @@ public class CacheItem<K,V> implements Serializable {
 	private V entry;
 
 ```
-
+```
+public class CacheWrapper<CacheItem> implements Serializable {	
+	private List<CacheItem> data;
+```
 
 # Instructions
 
