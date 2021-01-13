@@ -3,7 +3,7 @@ This project demonstrates how to perform a backup of an Infinispan Cache to a fi
 ## Table of contents
 * [Architecture](#Architecture)
 * [Design](#Design)
-* [Deployment instructions](#Deployment instructions)
+* [Deployment](#Deployment)
 ## Architecture
 The approach that is defined for the backup is to iterate through the cache for a given node and create a single dump file.
 The restore approach is to load a dump file on any node on demand. 
@@ -38,7 +38,7 @@ public class CacheWrapper<CacheItem> implements Serializable {
 	private List<CacheItem> data;
 ```
 
-## Deployment instructions
+## Deployment
 
 ### Build the project
 
