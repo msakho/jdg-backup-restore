@@ -10,6 +10,20 @@ The backup and restore exists in two flavor:
 3) A scheduled Startup class the process the restore given a scheduled configuration.
 4) A JMX Mbean that offers two operations to process the restore.
 
+A CacheItem Object is designed to encapsulate the Cache Key and the Cache Value.
+This gives us the flexibility to define custom typed keys and values.
+A messageKey and a PacsBean object are used respectively for keys and values.
+Finally a CacheWrapper is designed to encasulate the cache data.
+All these object are defined in respect of jackson databinding framework. 
+That gives us to possibility to marshall the cache into json and to load them back in a cache as desired.
+
+```
+public class CacheItem<K,V> implements Serializable {
+	private K key;
+	private V entry;
+
+```
+
 
 # Instructions
 
