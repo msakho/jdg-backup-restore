@@ -80,6 +80,70 @@ The jackson invocation to generate the dump from the cache look like the followi
 ```
 mapper.writeValue(new File(jsonOutput), cacheWrapper.getData());
 ```
+Given the above instruction, the following json file is generated:
+```
+[ {
+  "key" : {
+    "id" : "id3",
+    "bicCode" : "code3"
+  },
+  "entry" : {
+    "msgId" : "msg3",
+    "transactionId" : "003",
+    "instructionId" : "instr3",
+    "timeoutManagement" : true,
+    "amount" : 123000
+  }
+}, {
+  "key" : {
+    "id" : "id2",
+    "bicCode" : "code2"
+  },
+  "entry" : {
+    "msgId" : "msg2",
+    "transactionId" : "002",
+    "instructionId" : "instr2",
+    "timeoutManagement" : true,
+    "amount" : 123000
+  }
+}, {
+  "key" : {
+    "id" : "id4",
+    "bicCode" : "code4"
+  },
+  "entry" : {
+    "msgId" : "msg4",
+    "transactionId" : "004",
+    "instructionId" : "instr4",
+    "timeoutManagement" : true,
+    "amount" : 123000
+  }
+}, {
+  "key" : {
+    "id" : "id0",
+    "bicCode" : "code0"
+  },
+  "entry" : {
+    "msgId" : "msg0",
+    "transactionId" : "000",
+    "instructionId" : "instr0",
+    "timeoutManagement" : true,
+    "amount" : 123000
+  }
+}, {
+  "key" : {
+    "id" : "id1",
+    "bicCode" : "code1"
+  },
+  "entry" : {
+    "msgId" : "msg1",
+    "transactionId" : "001",
+    "instructionId" : "instr1",
+    "timeoutManagement" : true,
+    "amount" : 123000
+  }
+} ]
+```
 
 ## Deployment
 
