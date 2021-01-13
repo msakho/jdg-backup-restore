@@ -1,6 +1,10 @@
 # jdg-backup-restore
 This project demonstrates how to perform a backup of an Infinispan Cache to a file or a restore of an Infinispan Cache from a file.
-# Architecture
+## Table of contents
+* [Architecture](#Architecture)
+* [Design](#Design)
+* [Deployment](#Deployment instructions)
+## Architecture
 The approach that is defined for the backup is to iterate through the cache for a given node and create a single dump file.
 The restore approach is to load a dump file on any node on demand. 
 The marshalling and unmarshalling process of the cached datas relies on the [Jackson databinding framework](https://github.com/FasterXML/jackson-docs) 
@@ -10,7 +14,7 @@ The backup and restore exists in multiple flavors:
 3) A scheduled Startup class to process the restore given a scheduled configuration.
 4) A JMX Mbean that offers two operations to process the restore on demand.
 
-# Design
+## Design
 
 In order to process the backup by dumping the cache data in a file, the infinispan cached datas will have to be read and encapsulated to java suitable java objects before being marshalled to json files. 
 The same logic applies for the restore back to a cache from a json file. The json input will have to be marshalled back to java objects that will correspond to keys and value pairs, representing a cache entry.
@@ -34,15 +38,15 @@ public class CacheWrapper<CacheItem> implements Serializable {
 	private List<CacheItem> data;
 ```
 
-# Instructions
+## Deployment instructions
 
-## Build the project
+### Build the project
 
 ```
 mvn clean install
 ```
 
-## Start Jboss instance
+### Start Jboss instance
 The jboss must be started with the system properties that you want to define for both services.
 
 
@@ -64,7 +68,7 @@ jdg.restore.location.file=/usr/local/dev/workspace/codeready/backup-restore/stor
 jdg.restore.active=false
 jdg.restore.initial.delay=2
 ```
-## deploy the application
+### deploy the application
 
 ```
 mvn wildfly:deploy
