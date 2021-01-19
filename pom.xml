@@ -79,6 +79,10 @@
         <finalName>backup-restore</finalName>
         <plugins>
             <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>${version.war.plugin}</version>
                 <configuration>
@@ -90,11 +94,7 @@
                     </archive>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <version>2.1.0</version>
-            </plugin>
+            
         </plugins>
     </build>
 
