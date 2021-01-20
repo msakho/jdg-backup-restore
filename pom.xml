@@ -15,6 +15,12 @@
         <maven.test.skip>true</maven.test.skip>
         <version.war.plugin>2.6</version.war.plugin>
         <version.infinispan>11.0.3.Final-redhat-00001</version.infinispan>
+	 <!--  
+        <version.infinispan>8.3.1.Final-redhat-2</version.infinispan>
+        -->
+        <!-- 
+        <version.infinispan>8.3.0.Final-redhat-1</version.infinispan>
+         -->     
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <version.log4j>2.14.0</version.log4j>
