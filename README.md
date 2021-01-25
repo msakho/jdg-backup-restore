@@ -24,6 +24,8 @@ In order to fulfill these two statements, the following objects have been design
 3) Finally a CacheWrapper is designed to encapsulate the cache data. 
 All these objects are defined in respect of jackson data binding framework. That gives us the possibility to marshall the cache into json and to load them back in a cache as desired. The extract of the differents object definition are described below:
 
+:warning: The Object that will be marshalled and unmarchalled will require to have a defaul empty constructor. 
+It's the case for the Cache Key and the Cache entry beans.
 
 The extract of the differents object definition are described below:
 
